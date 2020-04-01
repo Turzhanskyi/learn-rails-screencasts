@@ -1,3 +1,27 @@
-<% @items.each do |i| %>
-  <p><%= link_to i.name,  item_path(i) %></p>
+<h1>Товари:</h1>
+
+<% if @items.empty? %>
+  <b>Немає товарів у магазині</b>
+<% else %>
+  <table>
+    <tr>
+      <th>Id товару</th>
+      <th>Назва товару</th>
+      <th>Опис товару</th>
+      <th>Ціна</th>
+      <th>Вага</th>
+      <th></th>
+    </tr>
+
+    <% @items.each do |i| %>
+      <tr>
+        <td><%= i.id %></td>
+        <td><%= link_to i.name, item_path(i) %></td>
+        <td><%= i.description %></td>
+        <td><%= i.price %> грн.</td>
+        <td><%= i.weight %> кг.</td>
+        <td><%= link_to "Видалити", i, method: :delete, data: { confirm: "Бажаєте видалити даний товар?" } %></td>
+      </tr>
+    <% end %>
+  </table>
 <% end %>
