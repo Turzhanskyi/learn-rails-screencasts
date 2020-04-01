@@ -1,7 +1,7 @@
 <h1>Товари:</h1>
 
 <% if @items.empty? %>
-  <b>Немає товарів у магазині</b>
+  <p>Немає товарів у магазині</p>
 <% else %>
   <table>
     <tr>
@@ -20,7 +20,7 @@
         <td><%= i.description %></td>
         <td><%= i.price %> грн.</td>
         <td><%= i.weight %> кг.</td>
-        <td><%= link_to "Видалити", i, method: :delete, data: { confirm: "Бажаєте видалити даний товар?" } %></td>
+        <td><%= link_to 'Видалити', i, method: :delete, data: { confirm: 'Бажаєте видалити даний товар?' } %></td>
       </tr>
     <% end %>
   </table>
