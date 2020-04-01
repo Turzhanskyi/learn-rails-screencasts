@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
-  before_action :find_item, only:      %i[show edit update destroy]
+  before_action :find_item, only:      %i[show edit update destroy upvote]
   before_action :check_if_admin, only: %i[edit update new create destroy]
 
   def index
@@ -44,6 +44,16 @@ class ItemsController < ApplicationController
   # /items/1  DELETE
   def destroy
     @item.destroy
+  end
+
+  def upvote
+    @item.increment!(:votes_count)
+    redirect_to action: :index
+  end
+
+  def expensive
+    @items = Item.where('price > 1000')
+    render :index
   end
 
   private

@@ -9,6 +9,7 @@
 #  name        :string
 #  price       :float
 #  real        :boolean
+#  votes_count :integer          default(0)
 #  weight      :float
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
