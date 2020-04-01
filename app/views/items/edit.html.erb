@@ -1,5 +1,11 @@
-<h1>Edit new item</h1>
-<form action="/items" method="POST">
-  <input type="text" name="title" />
-  <input type="submit" />
-</form>
+<h1>Edit item</h1>
+
+<%= form_for @item do |f| %>
+  <p>Назва товару:</br><%=  f.text_field :name %></p>
+  <p>Опис товару:</br><%=  f.text_field :description %></p>
+  <p>Вага:</br> <%=  f.text_field :weight %></p>
+  <p>Ціна:</br><%=  f.text_field :price %></p>
+
+  <p><%= f.submit "Зберегти товар" %></p>
+<%end%>
+

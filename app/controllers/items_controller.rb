@@ -18,7 +18,9 @@ class ItemsController < ApplicationController
   end
 
   # /items/1/edit  GET
-  def edit; end
+  def edit
+    @item = Item.find(params[:id])
+  end
 
   # /items  POST
   def create
@@ -31,7 +33,15 @@ class ItemsController < ApplicationController
   end
 
   # /items/1  PUT
-  def update; end
+  def update
+    @item = Item.find(params[:id])
+    @item.update(item_params)
+    if @item.errors.empty?
+      redirect_to item_path(@item)
+    else
+      render :edit
+    end
+  end
 
   # /items/1  DELETE
   def destroy; end
