@@ -13,14 +13,21 @@ class ItemsController < ApplicationController
   end
 
   # /items/new  GET
-  def new; end
+  def new
+    @item = Item.new
+  end
 
   # /items/1/edit  GET
   def edit; end
 
   # /items  POST
   def create
-    @items = Item.create(item_params)
+    @item = Item.create(item_params)
+    if @item.errors.empty?
+      redirect_to item_path(@item)
+    else
+      render :new
+    end
   end
 
   # /items/1  PUT
