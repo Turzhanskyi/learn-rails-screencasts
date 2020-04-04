@@ -2,14 +2,13 @@
 
 # == Schema Information
 #
-# Table name: users
+# Table name: orders
 #
 #  id         :bigint           not null, primary key
-#  login      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer
 #
-class User < ApplicationRecord
-  has_one :cart
-  has_many :orders
+class Order < ApplicationRecord
+  belongs_to :user
 end
