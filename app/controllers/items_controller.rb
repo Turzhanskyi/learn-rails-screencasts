@@ -63,14 +63,7 @@ class ItemsController < ApplicationController
   end
 
   def find_item
-    @item = Item.find(params[:id])
-  end
-
-  def check_if_admin
-    render_403 unless params[:admin]
-  end
-
-  def render_403
-    render file: 'public/403.html', status: 403
+    @item = Item.where(id: params[:id]).first
+    render_404 unless @item
   end
 end
