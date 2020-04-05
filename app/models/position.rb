@@ -2,15 +2,16 @@
 
 # == Schema Information
 #
-# Table name: carts
+# Table name: positions
 #
 #  id         :bigint           not null, primary key
+#  quantity   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :integer
+#  cart_id    :integer
+#  item_id    :integer
 #
-class Cart < ApplicationRecord
-  belongs_to :user
-  has_many :positions
-  has_many :items, through: :positions
+class Position < ApplicationRecord
+  belongs_to :item
+  belongs_to :cart
 end
