@@ -2,15 +2,14 @@
 
 # == Schema Information
 #
-# Table name: users
+# Table name: blog_posts
 #
 #  id         :bigint           not null, primary key
-#  login      :string
+#  body       :text
+#  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-class User < ApplicationRecord
-  has_one :cart
-  has_many :orders
-  has_many :comments
+class BlogPost < ApplicationRecord
+  has_many :comments, as: :commentable
 end
