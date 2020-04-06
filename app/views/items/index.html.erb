@@ -3,7 +3,7 @@
 <% if @items.empty? %>
   <p>Немає товарів у магазині</p>
 <% else %>
-  <table>
+  <table class="items">
     <tr>
       <th>Id товару</th>
       <th>Назва товару</th>
@@ -17,7 +17,10 @@
     <% @items.each do |i| %>
       <tr>
         <td><%= i.id %></td>
-        <td><%= link_to i.name, item_path(i) %></td>
+        <td>
+          <%= image_tag(i.image.url, alt: 'Image', width: "30px", height: "30px") if i.image? %> <br>
+          <%= link_to i.name, item_path(i) %>
+        </td>
         <td><%= i.description %></td>
         <td><%= i.price %> грн.</td>
         <td><%= i.weight %> кг.</td>

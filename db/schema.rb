@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_405_162_742) do
+ActiveRecord::Schema.define(version: 20_200_406_203_700) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20_200_405_162_742) do
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'description'
     t.integer 'votes_count', default: 0
+    t.string 'image'
     t.index ['name'], name: 'index_items_on_name'
     t.index ['price'], name: 'index_items_on_price'
   end

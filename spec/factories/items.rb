@@ -6,6 +6,7 @@
 #
 #  id          :bigint           not null, primary key
 #  description :string
+#  image       :string
 #  name        :string
 #  price       :float
 #  real        :boolean
