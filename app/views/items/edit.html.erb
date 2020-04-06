@@ -1,11 +1,10 @@
 <h1>Edit item</h1>
 
 <%= form_for @item do |f| %>
-  <p>Назва товару:</br><%=  f.text_field :name %></p>
-  <p>Опис товару:</br><%=  f.text_field :description %></p>
-  <p>Вага:</br> <%=  f.text_field :weight %></p>
-  <p>Ціна:</br><%=  f.text_field :price %></p>
+
+  <%= render partial: 'form', locals: { f: f} %>
 
   <p><%= f.submit "Зберегти товар" %></p>
+
 <%end%>
 

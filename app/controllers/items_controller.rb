@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ItemsController < ApplicationController
-  before_action :find_item, only:      %i[show edit update destroy upvote]
-  before_action :check_if_admin, only: %i[edit update new create destroy]
+  before_action :find_item, only: %i[show edit update destroy upvote]
+  # before_action :check_if_admin, only: %i[edit update new create destroy]
 
   def index
     @items = Item.all
