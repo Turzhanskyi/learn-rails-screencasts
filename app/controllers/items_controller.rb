@@ -5,9 +5,16 @@ class ItemsController < ApplicationController
   # before_action :check_if_admin, only: %i[edit update new create destroy]
 
   def index
-    @items = Item.where('price >= ?', params[:price_from])
-                 .order('votes_count DESC', 'price')
-                 .limit(5)
+    @items = Item
+    if params[:price_from]
+      @items = @items.where('price >= ?', params[:price_from])
+    end
+    @items = @items.where('created_at >= ?', 1.day.ago) if params[:today]
+    if params[:votes_count]
+      @items = @items.where('votes-count >= ?', params[:votes_count])
+    end
+    @items = @items.all
+    @items.order('votes_count DESC', 'price')
   end
 
   # /items/1  GET
