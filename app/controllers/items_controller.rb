@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # before_action :check_if_admin, only: %i[edit update new create destroy]
 
   def index
-    @items = Item.all
+    @items = Item.where('price >= ?', params[:price_from])
   end
 
   # /items/1  GET
