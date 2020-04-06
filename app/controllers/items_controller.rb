@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.where('price >= ?', params[:price_from])
+                 .order('votes_count DESC', 'price')
+                 .limit(5)
   end
 
   # /items/1  GET
