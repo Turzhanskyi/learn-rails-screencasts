@@ -28,6 +28,9 @@ gem 'carrierwave'
 gem 'devise'
 gem 'mini_magick'
 
+gem 'bootstrap', '~> 4.4', '>= 4.4.1'
+gem 'jquery-rails'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
