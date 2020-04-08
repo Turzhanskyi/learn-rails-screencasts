@@ -34,8 +34,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.create(item_params)
     if @item.errors.empty?
+      flash[:success] = "Item successfully created!"
       redirect_to item_path(@item)
     else
+      flash.now[:error] = "You made mistakes in your form! Pleace correct them."
       render 'new'
     end
   end
@@ -44,8 +46,10 @@ class ItemsController < ApplicationController
   def update
     @item.update(item_params)
     if @item.errors.empty?
+      flash[:success] = "Item successfully updated!"
       redirect_to item_path(@item)
     else
+      flash.now[:error] = 'You made mistakes in your form! Pleace correct them.'
       render 'edit'
     end
   end
