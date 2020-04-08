@@ -11,18 +11,25 @@
 
   <body>
 
-  <div>
-    <% if user_signed_in? %>
-      <span>Вітаю, <%= current_user.email %></span>
-      <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to 'Увійти', new_user_session_path %> або <%= link_to 'Зареєструватися', new_user_registration_path %>
-    <% end %>
+  <div class="container">
+    <div class="text-center">
+      <% if user_signed_in? %>
+        <span>Вітаю, <%= current_user.email %></span>
+        <%= link_to 'Вийти', destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to 'Увійти', new_user_session_path %> або <%= link_to 'Зареєструватися', new_user_registration_path %>
+      <% end %>
+    </div>
+
+    <p style="color: red"><%= flash[:error] %></p>
+    <p style="color: green"><%= flash[:success] %></p>
+
+    <div class="container body">
+      <%= yield %>
+    </div>
   </div>
 
-  <p style="color: red"><%= flash[:error] %></p>
-  <p style="color: green"><%= flash[:success] %></p>
 
-  <%= yield %>
+
   </body>
 </html>

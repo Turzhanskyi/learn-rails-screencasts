@@ -1,6 +1,7 @@
-<p>Назва товару:</br><%=  f.text_field :name %></p>
-</br><%= f.file_field :image %>
-<p>Опис товару:</br><%=  f.text_area :description %></p>
-<p>Вага:</br> <%=  f.text_field :weight %></p>
-<p>Ціна:</br><%=  f.text_field :price %></p>
+<%= f.input :name %>
+<%= f.input :image %>
+<%= f.input :description %>
+<%= f.input :weight %>
+<%= f.input :price %>
+
 <%= hidden_field_tag :admin, params[:admin] %>

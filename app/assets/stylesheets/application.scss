@@ -1,9 +1,17 @@
-@import "bootstrap";
+@import 'bootstrap';
 
 
 input[type=submit] { @extend .btn; @extend .btn-success}
 
 .email {
+  color: #555;
   font-size: 80%;
-  color: #555; margin: 1em;
+  margin: 1em;
+}
+
+.body {
+  background: linear-gradient(270deg, #f0613c 0%, #f0783c 100%);
+  flex-grow: 1;
+  padding-top: 100px;
+  width: 100%;
 }
