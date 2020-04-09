@@ -35,6 +35,8 @@ gem 'simple_form'
 
 gem 'slim'
 
+gem 'exception_notification'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

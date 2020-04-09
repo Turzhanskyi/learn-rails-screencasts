@@ -36,7 +36,7 @@ module LearnRailsScreencasts
 
     config.i18n.default_locale = :uk
     config.time_zone = 'Kyiv'
-    config.exceptions_app = self.routes
+    config.exceptions_app = routes
     config.active_record.belongs_to_required_by_default = true
 
     config.generators do |g|
@@ -46,15 +46,15 @@ module LearnRailsScreencasts
       g.decorator   false
 
       g.template_engine :slim
-      g.fixture_replacement :factory_bot, dir: "spec/factories"
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
 
       g.test_framework  :rspec,
                         fixtures: true,
                         view_specs: false,
                         helper_specs: false,
-                        routing_specs:  false,
+                        routing_specs: false,
                         controller_specs: false,
-                        request_specs:  false
+                        request_specs: false
     end
   end
 end

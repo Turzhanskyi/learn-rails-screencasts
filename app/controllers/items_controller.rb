@@ -19,6 +19,7 @@ class ItemsController < ApplicationController
 
   # /items/1  GET
   def show
+    # raise 'exception test!'
     render plain: 'Page not found', status: 404 unless @item
   end
 
