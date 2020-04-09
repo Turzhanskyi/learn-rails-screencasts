@@ -1,0 +1,19 @@
+h1
+  = @item.name
+ul
+  li
+    = t('item.name')
+    = @item.name
+    br
+    = image_tag(@item.image.url) if @item.image?
+  li
+    = t('item.description')
+    = urls_to_links(urls_to_images(@item.description))
+  li
+    = t('item.weight')
+    = @item.weight
+    | кг.
+  li
+    = t('item.price')
+    = @item.price
+    | грн.

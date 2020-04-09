@@ -1,0 +1,9 @@
+.row
+  .col-sm-offset-4.col-sm-4
+    h1
+      = t('item.edit')
+    = simple_form_for @item do |f|
+      = render partial: 'form', locals: {f: f}
+      .row
+        .col-sm-4.button_box
+          = f.submit t('update')

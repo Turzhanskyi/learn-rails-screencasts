@@ -1,0 +1,43 @@
+h1
+  | Товари:
+- if @items.empty?
+  b
+    | Немає товарів у магазині
+- else
+  table
+    tr
+      th
+        = t('item.id')
+      th
+        = t('item.name')
+      th
+        = t('item.description')
+      th
+        = t('item.price')
+      th
+        = t('item.weight')
+      th
+      th
+    - @items.each do |i|
+      tr
+        td
+          = i.id
+        td
+          = image_tag(i.image.url, alt: 'Image', width: '20px', height: '45px') if i.image?
+          br
+          = link_to i.name, item_path(i)
+        td
+          = i.description
+        td
+          = i.price
+          |  грн.
+        td
+          = i.weight
+          |  кг.
+        td
+          = link_to 'Видалити', i, method: :delete, data: { confirm: 'Бажаєте видалити даний товар?' }
+        td
+          | Рейтинг:
+          = i.votes_count
+          | ,
+          = link_to '+', upvote_item_path(i)
