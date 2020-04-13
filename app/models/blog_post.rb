@@ -12,4 +12,6 @@
 #
 class BlogPost < ApplicationRecord
   has_many :comments, as: :commentable
+
+  validates :body, :title, presence: true
 end

@@ -12,5 +12,9 @@
 require 'rails_helper'
 
 RSpec.describe Cart, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to belong_to(:user) }
+  it { is_expected.to have_many(:positions) }
+  it { is_expected.to have_many(:items).through(:positions) }
+
+  it { is_expected.to validate_presence_of(:user_id) }
 end

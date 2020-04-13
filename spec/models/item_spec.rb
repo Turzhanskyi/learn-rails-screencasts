@@ -23,5 +23,17 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { is_expected.to have_many(:positions) }
+  it { is_expected.to have_many(:carts).through(:positions) }
+  it { is_expected.to have_many(:comments) }
+
+  it {
+    should validate_numericality_of(:price)
+      .is_greater_than(0).allow_nil
+  }
+
+  it { is_expected.to validate_presence_of(:name) }
+  it { is_expected.to validate_presence_of(:description) }
+  it { is_expected.to validate_presence_of(:weight) }
+  it { is_expected.to validate_presence_of(:image) }
 end

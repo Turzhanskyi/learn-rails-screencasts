@@ -37,6 +37,8 @@ gem 'slim'
 
 gem 'exception_notification'
 
+gem 'rubocop', '~> 0.81.0', require: false
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -47,7 +49,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
+  gem 'inquisition', github: 'rubygarage/inquisition'
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
 end
 
 group :development do

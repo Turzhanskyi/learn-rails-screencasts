@@ -14,4 +14,6 @@
 class Position < ApplicationRecord
   belongs_to :item
   belongs_to :cart
+
+  validates :item_id, :cart_id, :quantity, presence: true
 end

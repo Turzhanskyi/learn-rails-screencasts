@@ -8,10 +8,3 @@ input[type=submit] { @extend .btn; @extend .btn-success}
   font-size: 80%;
   margin: 1em;
 }
-
-.body {
-  background: linear-gradient(270deg, #f0613c 0%, #f0783c 100%);
-  flex-grow: 1;
-  padding-top: 100px;
-  width: 100%;
-}

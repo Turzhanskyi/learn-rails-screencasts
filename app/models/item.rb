@@ -24,7 +24,9 @@ class Item < ApplicationRecord
   mount_uploader :image, ImageUploader
 
   validates :price, numericality: { greater_than: 0, allow_nil: true }
-  validates :name, :description, :image, presence: true
+  validates :name, :description, :image, :weight, presence: true
+
+  has_and_belongs_to_many :orders
 
   has_many :positions
   has_many :carts, through: :positions

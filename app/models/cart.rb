@@ -13,4 +13,6 @@ class Cart < ApplicationRecord
   belongs_to :user
   has_many :positions
   has_many :items, through: :positions
+
+  validates :user_id, presence: true
 end

@@ -19,5 +19,5 @@ html
           | або #{link_to 'Зареєструватися', new_user_registration_path}
       p style=("color: red") = flash[:error]
       p style=("color: green") = flash[:success]
-      .container.body
+      .container
         = yield
